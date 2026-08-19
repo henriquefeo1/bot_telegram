@@ -1,0 +1,16 @@
+[Unit]
+Description=Bot Telegram - Assinaturas do canal via Pix
+After=network.target
+
+[Service]
+Type=simple
+# Ajuste o usuário e o caminho conforme seu servidor
+User=deploy
+WorkingDirectory=/opt/telegram-pix-bot
+EnvironmentFile=/opt/telegram-pix-bot/.env
+ExecStart=/opt/telegram-pix-bot/venv/bin/python -m bot.main
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
